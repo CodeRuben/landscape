@@ -8,7 +8,9 @@ export NVM_DIR="$HOME/.nvm"
 
 cd /var/www/landscape
 
-git pull origin main
+# next-env.d.ts is auto-updated by Next on this host; discard those edits so pulls never block.
+git fetch origin main
+git reset --hard origin/main
 
 pnpm install --frozen-lockfile
 pnpm build
