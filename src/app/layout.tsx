@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import { Footer } from "@/components/Footer";
+import { GoatCounterAnalytics } from "@/components/GoatCounterAnalytics";
 import { Header } from "@/components/Header";
 import { business } from "@/data/site";
 import { defaultDescription, localBusinessJsonLd } from "@/lib/seo";
@@ -54,6 +55,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <GoatCounterAnalytics />
       </body>
     </html>
   );
