@@ -1,16 +1,17 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
+set -e
 
-cd "$(dirname "$0")"
+source ~/.bashrc 2>/dev/null || source ~/.profile 2>/dev/null || true
 
-git fetch origin
-git reset --hard "origin/main"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
-export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
-if [[ -s "$NVM_DIR/nvm.sh" ]]; then
-  . "$NVM_DIR/nvm.sh"
-fi
+cd /var/www/landscape
 
-npm ci
-npm run build
+git pull origin main
+
+pnpm install --frozen-lockfile
+pnpm build
+
 pm2 restart khwhite-landscape --update-env
+echo "Deploy complete!"
