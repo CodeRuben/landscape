@@ -1,17 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
+import headerBanner from "../../public/images/brand/header.jpg";
 import { business } from "@/data/site";
+import { IMAGE_SIZES } from "@/lib/images";
 
 export function Hero() {
   return (
     <section className="hero">
       <div className="hero-banner">
         <Image
-          src="/images/brand/header.jpg"
+          src={headerBanner}
           alt="K.H. White Bobcat Services header with bobcat and phone number"
           fill
           priority
-          sizes="100vw"
+          placeholder="blur"
+          sizes={IMAGE_SIZES.heroBanner}
         />
       </div>
 

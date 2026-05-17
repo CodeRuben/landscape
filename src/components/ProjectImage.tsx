@@ -1,7 +1,5 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
+import { IMAGE_SIZES, projectImageSrc } from "@/lib/images";
 
 type ProjectImageProps = {
   fileName: string;
@@ -9,25 +7,16 @@ type ProjectImageProps = {
 };
 
 export function ProjectImage({ fileName, alt }: ProjectImageProps) {
-  const [hasError, setHasError] = useState(false);
-
-  if (hasError) {
-    return (
-      <div className="image-placeholder">
-        <span>{alt}</span>
-      </div>
-    );
-  }
-
   return (
     <div className="project-image-wrapper">
       <Image
         className="project-image"
-        src={`/images/projects/${fileName}`}
+        src={projectImageSrc(fileName)}
         alt={alt}
         fill
-        sizes="(max-width: 620px) 100vw, (max-width: 900px) 50vw, 33vw"
-        onError={() => setHasError(true)}
+        sizes={IMAGE_SIZES.galleryGrid}
+        loading="lazy"
+        decoding="async"
       />
     </div>
   );

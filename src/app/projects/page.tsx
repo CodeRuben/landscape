@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ProjectGallery } from "@/components/ProjectGallery";
+import { getProjectGalleryJumpLinks } from "@/lib/project-nav";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const jumpLinks = getProjectGalleryJumpLinks();
+
   return (
     <section className="page-section">
       <div className="container">
@@ -19,19 +22,18 @@ export default function ProjectsPage() {
           Land clearing, drainage, removal, and lawn preparation projects
         </h1>
         <p className="lede">
-          The original WordPress site split these projects into several pages.
-          This rebuild combines them into one simple project gallery so visitors
-          can quickly understand the range of work.
+          Browse before-and-after and in-progress shots by project type—from land clearing
+          and sod to French drains, pool removal, grub repair, and small concrete
+          removals—so you can see how we tackle real MetroWest yards.
         </p>
       </div>
 
       <div className="container project-jump-list" aria-label="Project sections">
-        <a href="#land-clearing">Land Clearing</a>
-        <a href="#sod-installation">Sod Installation</a>
-        <a href="#french-drain-installation">French Drains</a>
-        <a href="#pool-removal">Pool Removal</a>
-        <a href="#grub-damage-repair">Grub Damage</a>
-        <a href="#concrete-slab-removal">Slab Removal</a>
+        {jumpLinks.map((link) => (
+          <a key={link.slug} href={link.href}>
+            {link.label}
+          </a>
+        ))}
       </div>
 
       <div className="container">

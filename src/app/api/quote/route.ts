@@ -1,59 +1,11 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { RECAPTCHA_QUOTE_ACTION } from "@/lib/recaptcha";
 import {
   sanitizeQuotePayload,
   validateQuoteFields,
 } from "@/lib/quote-validation";
 
 export const runtime = "nodejs";
-
-function parseMinScore(): number {
-  const raw = process.env.RECAPTCHA_MIN_SCORE;
-  const n = raw !== undefined ? Number.parseFloat(raw) : 0.5;
-  if (!Number.isFinite(n)) return 0.5;
-  return Math.min(1, Math.max(0, n));
-}
-
-async function verifyRecaptchaV3(token: string): Promise<{
-  ok: boolean;
-  score?: number;
-}> {
-  const secret = process.env.RECAPTCHA_SECRET_KEY;
-  if (!secret) {
-    return { ok: false };
-  }
-
-  const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ secret, response: token }),
-  });
-
-  const data = (await res.json()) as {
-    success?: boolean;
-    score?: number;
-    action?: string;
-  };
-
-  if (data.success !== true) {
-    return { ok: false };
-  }
-
-  /* v3-specific */
-  const minScore = parseMinScore();
-  const score =
-    typeof data.score === "number" && Number.isFinite(data.score) ? data.score : undefined;
-  if (score === undefined || score < minScore) {
-    return { ok: false, score };
-  }
-
-  if (data.action !== RECAPTCHA_QUOTE_ACTION) {
-    return { ok: false, score };
-  }
-
-  return { ok: true, score };
-}
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -86,32 +38,6 @@ export async function POST(request: Request) {
   const validation = validateQuoteFields(payload);
   if (!validation.ok) {
     return NextResponse.json({ errors: validation.errors }, { status: 400 });
-  }
-
-  const captcha =
-    typeof record.recaptchaToken === "string" ? record.recaptchaToken.trim() : "";
-  if (!captcha) {
-    return NextResponse.json(
-      {
-        errors: {
-          captcha: "Submission could not be verified. Refresh the page and try again.",
-        },
-      },
-      { status: 400 },
-    );
-  }
-
-  const captchaResult = await verifyRecaptchaV3(captcha);
-  if (!captchaResult.ok) {
-    return NextResponse.json(
-      {
-        errors: {
-          captcha:
-            "Automatic verification did not clear this submission. Try again in a moment, or call us instead.",
-        },
-      },
-      { status: 400 },
-    );
   }
 
   const apiKey = process.env.RESEND_API_KEY;

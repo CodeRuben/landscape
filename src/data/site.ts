@@ -49,19 +49,47 @@ export const services = [
   "Lawn Installation",
 ];
 
-export const projectGroups = [
+export type ProjectGalleryImage = {
+  fileName: string;
+  alt: string;
+};
+
+export const projectGroups: ReadonlyArray<{
+  title: string;
+  slug: string;
+  description: string;
+  images: readonly ProjectGalleryImage[];
+}> = [
   {
     title: "Land Clearing",
     slug: "land-clearing",
     description:
       "Clearing overgrown spaces, removing brush, reshaping grades, and preparing land for lawns or future improvements.",
     images: [
-      "land-clearing-to-lawn.jpg",
-      "land-clearing-to-lawn-after.jpg",
-      "brush-removal.jpg",
-      "land-grading-clearing.jpg",
-      "new-lawn-seeded-2-weeks.jpg",
-      "new-lawn-seeded-8-weeks.jpg",
+      {
+        fileName: "land-clearing-to-lawn.jpg",
+        alt: "Overgrown brush and edge growth on a residential lot before bobcat clearing work",
+      },
+      {
+        fileName: "land-clearing-to-lawn-after.jpg",
+        alt: "The same cleared area rough-graded and opened up, ready for seeding or sod preparation",
+      },
+      {
+        fileName: "brush-removal.jpg",
+        alt: "Dense brush pile and woody debris cleared from a backyard during land clearing",
+      },
+      {
+        fileName: "land-grading-clearing.jpg",
+        alt: "Compact loader grading and smoothing soil on a freshly cleared yard",
+      },
+      {
+        fileName: "new-lawn-seeded-2-weeks.jpg",
+        alt: "New lawn seeding roughly two weeks in, showing early green-up across the soil",
+      },
+      {
+        fileName: "new-lawn-seeded-8-weeks.jpg",
+        alt: "Established lawn about eight weeks after seeding with even grass cover",
+      },
     ],
   },
   {
@@ -69,7 +97,16 @@ export const projectGroups = [
     slug: "sod-installation",
     description:
       "Finish grading and lawn preparation work for clean, even sod installation and curb appeal.",
-    images: ["sod-installation.jpg", "sod-completion.jpg"],
+    images: [
+      {
+        fileName: "sod-installation.jpg",
+        alt: "Fresh sod rolls being laid onto prepared grade along the edge of a house lot",
+      },
+      {
+        fileName: "sod-completion.jpg",
+        alt: "Completed sod lawn with tight seams and a smooth finish toward the foundation",
+      },
+    ],
   },
   {
     title: "French Drain Installation",
@@ -77,11 +114,26 @@ export const projectGroups = [
     description:
       "Drainage trenching and grading to redirect water and reduce wet spots around lawns and foundations.",
     images: [
-      "french-drain-sscrape-grass.jpg",
-      "french-drain-start-trench.jpg",
-      "french-drain-dig-trench-backhoe.jpg",
-      "french-drain-start-trench-2.jpg",
-      "bobcat-backhoe-attachment.jpg",
+      {
+        fileName: "french-drain-sscrape-grass.jpg",
+        alt: "Turf scraped back along a shallow line to expose the path for a French drain trench",
+      },
+      {
+        fileName: "french-drain-start-trench.jpg",
+        alt: "Drainage trench started across a lawn with soil laid to the side of the cut",
+      },
+      {
+        fileName: "french-drain-dig-trench-backhoe.jpg",
+        alt: "Small backhoe attachment deepening a drainage trench beside a seeded yard",
+      },
+      {
+        fileName: "french-drain-start-trench-2.jpg",
+        alt: "Long open drainage trench through grass with excavation spoil beside the trench",
+      },
+      {
+        fileName: "bobcat-backhoe-attachment.jpg",
+        alt: "Bobcat compact loader fitted with a backhoe arm parked at a trenching jobsite",
+      },
     ],
   },
   {
@@ -89,7 +141,16 @@ export const projectGroups = [
     slug: "pool-removal",
     description:
       "Removal and backfilling work for old in-ground pools so yards can be reclaimed and regraded.",
-    images: ["pool-removal-before.jpg", "pool-removal-after.jpg"],
+    images: [
+      {
+        fileName: "pool-removal-before.jpg",
+        alt: "In-ground backyard swimming pool awaiting demolition and backfill removal",
+      },
+      {
+        fileName: "pool-removal-after.jpg",
+        alt: "Leveled backyard after pool shell removal and backfill, cleared for grading or lawn",
+      },
+    ],
   },
   {
     title: "Grub Damage Repair",
@@ -97,9 +158,18 @@ export const projectGroups = [
     description:
       "Repairing damaged turf areas with soil preparation, grading, and lawn restoration support.",
     images: [
-      "grub-damage-before.jpg",
-      "grub-damage-during.jpg",
-      "grub-damage-after.jpg",
+      {
+        fileName: "grub-damage-before.jpg",
+        alt: "Thin, brown, and patchy turf showing stress typical of grub damage before repair",
+      },
+      {
+        fileName: "grub-damage-during.jpg",
+        alt: "Lawn area disturbed for soil work and regrading while restoring grub-damaged turf",
+      },
+      {
+        fileName: "grub-damage-after.jpg",
+        alt: "Restored lawn area with improved soil and healthy grass cover after grub repair work",
+      },
     ],
   },
   {
@@ -107,7 +177,20 @@ export const projectGroups = [
     slug: "concrete-slab-removal",
     description:
       "Light demolition and removal of concrete slabs, patios, and similar small excavation projects.",
-    images: ["slab-removal.jpg", "concrete-slab-removal.jpg", "concrete-removal.jpg"],
+    images: [
+      {
+        fileName: "slab-removal.jpg",
+        alt: "Broken concrete patio pieces stacked on a lawn during small slab demolition",
+      },
+      {
+        fileName: "concrete-slab-removal.jpg",
+        alt: "Concrete slab section broken and separated for loader or hand removal from the yard",
+      },
+      {
+        fileName: "concrete-removal.jpg",
+        alt: "Excavation area cleared after concrete debris from a patio or slab was removed",
+      },
+    ],
   },
 ];
 
@@ -117,3 +200,11 @@ export const quoteFields = [
   "Telephone Number",
   "Description of Work Needed",
 ];
+
+export function getProjectGroupBySlug(slug: string) {
+  const group = projectGroups.find((p) => p.slug === slug);
+  if (!group) {
+    throw new Error(`Missing project group: ${slug}`);
+  }
+  return group;
+}

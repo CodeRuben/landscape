@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import frenchDrainHero from "../../../public/images/projects/french-drain-dig-trench-backhoe.jpg";
 import { business, services } from "@/data/site";
+import { IMAGE_SIZES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About",
@@ -21,11 +23,12 @@ export default function AboutPage() {
               <div className="intro-ba-mat">
                 <div className="intro-ba-image">
                   <Image
-                    src="/images/projects/french-drain-dig-trench-backhoe.jpg"
+                    src={frenchDrainHero}
                     alt="Trench excavation for a French drain with compact backhoe equipment"
                     fill
-                    sizes="(max-width: 640px) 90vw, (max-width: 900px) 46vw, 440px"
                     priority
+                    placeholder="blur"
+                    sizes={IMAGE_SIZES.aboutHero}
                   />
                 </div>
               </div>
@@ -37,10 +40,10 @@ export default function AboutPage() {
               Experienced bobcat and excavation services since {business.founded}
             </h1>
             <p className="lede">
-              Established in 1989, Kevin White has provided the MetroWest area
-              with quality Bobcat excavator service. K.H. White Bobcat Services
-              has decades of operating experience across excavation, land
-              development, grading, drainage, and lawn installation.
+              Established in 1989, Kevin White has provided the MetroWest area with quality
+              Bobcat excavator service. K.H. White Bobcat Services has decades of operating
+              experience across excavation, land development, grading, drainage, and lawn
+              installation.
             </p>
           </div>
         </div>
@@ -54,8 +57,8 @@ export default function AboutPage() {
               <h2>Services offered</h2>
             </div>
             <p className="about-services-section-lede">
-              Hands-on work for tight backyards and larger stretches of grade,
-              from clearing and drainage to lawn prep.
+              Hands-on work for tight backyards and larger stretches of grade, from clearing
+              and drainage to lawn prep.
             </p>
           </div>
 

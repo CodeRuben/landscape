@@ -38,7 +38,13 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        © {new Date().getFullYear()} {business.legalName}
+        <div className="footer-bottom-copy">
+          © {new Date().getFullYear()} {business.legalName}
+        </div>
+        <p className="footer-acknowledgement">
+          Website built and hosted by Ruben Fonseca. This site runs on Claude and Cursor AI in
+          the Claude Code IDE.
+        </p>
       </div>
     </footer>
   );

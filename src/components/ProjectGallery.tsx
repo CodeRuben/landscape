@@ -1,12 +1,5 @@
-import { projectGroups } from "@/data/site";
 import { ProjectImage } from "@/components/ProjectImage";
-
-function prettyName(fileName: string) {
-  return fileName
-    .replace(/\.(jpg|jpeg|png|gif|webp)$/i, "")
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
-}
+import { projectGroups } from "@/data/site";
 
 export function ProjectGallery() {
   return (
@@ -21,8 +14,8 @@ export function ProjectGallery() {
 
           <div className="gallery-grid">
             {group.images.map((image) => (
-              <figure className="project-card" key={image}>
-                <ProjectImage fileName={image} alt={prettyName(image)} />
+              <figure className="project-card" key={image.fileName}>
+                <ProjectImage fileName={image.fileName} alt={image.alt} />
               </figure>
             ))}
           </div>
