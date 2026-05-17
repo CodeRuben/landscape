@@ -1021,19 +1021,13 @@ textarea {
   color: rgba(255, 255, 255, 0.76);
   margin-top: 1.5rem;
   padding-top: 1.1rem;
-  display: grid;
-  gap: 0.75rem;
 }
 
 .footer-bottom-copy {
   font-size: 0.9rem;
 }
 
-.site-footer .footer-acknowledgement {
-  margin: 0;
-  max-width: 44rem;
-  font-size: 0.82rem;
-  line-height: 1.55;
+.site-footer .footer-version {
   color: rgba(255, 255, 255, 0.62);
 }
 

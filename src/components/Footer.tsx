@@ -1,4 +1,5 @@
 import Link from "next/link";
+import packageJson from "../../package.json";
 import { business, navigation } from "@/data/site";
 
 export function Footer() {
@@ -40,11 +41,8 @@ export function Footer() {
       <div className="container footer-bottom">
         <div className="footer-bottom-copy">
           © {new Date().getFullYear()} {business.legalName}
+          <span className="footer-version"> · v{packageJson.version}</span>
         </div>
-        <p className="footer-acknowledgement">
-          Website built and hosted by Ruben Fonseca. This site runs on Claude and Cursor AI in
-          the Claude Code IDE.
-        </p>
       </div>
     </footer>
   );
