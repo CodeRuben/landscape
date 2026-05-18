@@ -1,5 +1,0 @@
-Release v0.1.6: lighter project assets and mobile intro compare.
-
-Compress key gallery JPEGs, relocate unused shots under projects/unused,
-stack home before/after images below 620px with responsive sizes, and sync
-next-env route typings.
