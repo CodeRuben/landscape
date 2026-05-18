@@ -1,5 +1,10 @@
 name: Deploy to Vultr
 
+# One deploy at a time: Next.js rejects concurrent `next build` against the same `.next` dir.
+concurrency:
+  group: deploy-vultr-main
+  cancel-in-progress: false
+
 on:
   push:
     branches:
