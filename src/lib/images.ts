@@ -7,9 +7,9 @@ export const IMAGE_SIZES = {
   galleryGrid: "(max-width: 620px) 100vw, (max-width: 900px) 50vw, 33vw",
   /** “Services we offer” cards on the home page. */
   serviceCardGrid: "(max-width: 620px) 100vw, (max-width: 900px) 50vw, 33vw",
-  /** Side-by-side before/after in the intro compare block. */
+  /** Before/after pair: stacked full width on small screens, paired wider up. */
   introComparePair:
-    "(max-width: 640px) 42vw, (max-width: 900px) 44vw, min(520px, 50vw)",
+    "(max-width: 620px) 100vw, (max-width: 900px) 44vw, min(520px, 50vw)",
   /** “Who we are” portrait block: full width once stacked (~1024px), else sidebar width. */
   whoPortrait: "(max-width: 1024px) 100vw, 42vw",
   /** About page hero visual (~half width tablet, fixed max on desktop). */
