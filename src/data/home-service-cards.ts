@@ -4,6 +4,7 @@ const landClearing = getProjectGroupBySlug("land-clearing");
 const sodInstallation = getProjectGroupBySlug("sod-installation");
 const frenchDrain = getProjectGroupBySlug("french-drain-installation");
 const poolRemoval = getProjectGroupBySlug("pool-removal");
+const reGrading = getProjectGroupBySlug("re-grading");
 const grubRepair = getProjectGroupBySlug("grub-damage-repair");
 
 /**
@@ -54,9 +55,9 @@ export const homeServiceCards = [
   },
   {
     id: "regrade",
-    slug: landClearing.slug,
-    title: "Re-grading",
-    description: "Regrade hilled areas to create more flat, usable land.",
+    slug: reGrading.slug,
+    title: reGrading.title,
+    description: reGrading.description,
     image: "lawn-leveling-after.jpg",
     imageAlt:
       "Graded backyard terrace covered with mulch beside a lawn after leveling work",

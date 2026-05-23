@@ -30,12 +30,9 @@ export function Hero() {
             K.H. White Bobcat Services has been providing lawn installations,
             land clearing, drywells and more in the MetroWest area for over 35
             years. We not only provide you with great service, but we also have
-            the most competitive pricing in the area, as we charge on the actual
-            work at your property and do not seek making money on the materials.
-            If you are looking to improve your lawn, expand your backyard to get
-            the most out of your property or fix poor drainage issues once and
-            for all, give us a call. We have free estimates and are fully
-            insured.
+            the most competitive pricing in the area. If you are looking to
+            improve your lawn, expand your backyard or fix poor drainage issues
+            once and for all, give us a call.
           </p>
           <div className="hero-service-list" aria-label="Common services">
             <span>Land Clearing</span>

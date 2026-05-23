@@ -5,7 +5,7 @@ import { getProjectGalleryJumpLinks } from "@/lib/project-nav";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "View K.H. White Bobcat Services project categories including land clearing, sod installation, French drains, pool removal, grub damage repair, and concrete slab removal.",
+    "View K.H. White Bobcat Services project categories including land clearing, sod installation, French drains, pool removal, re-grading, grub damage repair, and concrete slab removal.",
   alternates: {
     canonical: "/projects",
   },

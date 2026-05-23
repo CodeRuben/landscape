@@ -31,10 +31,10 @@ export default function Home() {
       <section className="section section-muted">
         <div className="container section-heading">
           <p className="eyebrow">Services We Offer</p>
-          <h2>Focused excavation and landscape preparation services</h2>
+          <h2>K.H. White bobcat services offers a wide range of machine work</h2>
           <p>
-            A simpler service lineup than a full landscape company, but built around the
-            work homeowners often need before planting, building, or restoring a yard.
+            With both backhoe and grapple attachments we can provide you with a one stop
+            option to get your landscape projects done and in a short amount of time.
           </p>
         </div>
 

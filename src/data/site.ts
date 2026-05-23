@@ -67,14 +67,6 @@ export const projectGroups: ReadonlyArray<{
       "Clearing overgrown spaces, removing brush, reshaping grades, and preparing land for lawns or future improvements.",
     images: [
       {
-        fileName: "land-clearing-to-lawn.jpg",
-        alt: "Overgrown brush and edge growth on a residential lot before bobcat clearing work",
-      },
-      {
-        fileName: "land-clearing-to-lawn-after.jpg",
-        alt: "The same cleared area rough-graded and opened up, ready for seeding or sod preparation",
-      },
-      {
         fileName: "brush-removal.jpg",
         alt: "Dense brush pile and woody debris cleared from a backyard during land clearing",
       },
@@ -83,12 +75,16 @@ export const projectGroups: ReadonlyArray<{
         alt: "Compact loader grading and smoothing soil on a freshly cleared yard",
       },
       {
-        fileName: "new-lawn-seeded-2-weeks.jpg",
-        alt: "New lawn seeding roughly two weeks in, showing early green-up across the soil",
-      },
-      {
         fileName: "new-lawn-seeded-8-weeks.jpg",
         alt: "Established lawn about eight weeks after seeding with even grass cover",
+      },
+      {
+        fileName: "land-clearing-to-lawn.jpg",
+        alt: "Overgrown brush and edge growth on a residential lot before bobcat clearing work",
+      },
+      {
+        fileName: "land-clearing-to-lawn-after.jpg",
+        alt: "The same cleared area rough-graded and opened up, ready for seeding or sod preparation",
       },
     ],
   },
@@ -149,6 +145,22 @@ export const projectGroups: ReadonlyArray<{
       {
         fileName: "pool-removal-after.jpg",
         alt: "Leveled backyard after pool shell removal and backfill, cleared for grading or lawn",
+      },
+    ],
+  },
+  {
+    title: "Re-grading",
+    slug: "re-grading",
+    description:
+      "A hilled area can be re-graded to create flat usable land that can expand your lawn.",
+    images: [
+      {
+        fileName: "bobcat-grapple.jpg",
+        alt: "Bobcat loader with grapple attachment re-grading a sloped hillside near a home",
+      },
+      {
+        fileName: "lawn-leveling-after.jpg",
+        alt: "Graded backyard terrace covered with mulch beside a lawn after leveling work",
       },
     ],
   },

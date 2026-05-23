@@ -37,13 +37,14 @@ export default function AboutPage() {
           <div className="who-copy">
             <p className="eyebrow">About K.H. White</p>
             <h1 className="page-title">
-              Experienced bobcat and excavation services since {business.founded}
+              Experienced bobcat and excavation services since{" "}
+              {business.founded}
             </h1>
             <p className="lede">
-              Established in 1989, Kevin White has provided the MetroWest area with quality
-              Bobcat excavator service. K.H. White Bobcat Services has decades of operating
-              experience across excavation, land development, grading, drainage, and lawn
-              installation.
+              Established in 1989, Kevin White has provided the MetroWest area
+              with quality Bobcat excavator service. K.H. White Bobcat Services
+              has decades of operating experience across excavation, land
+              development, grading, drainage, and lawn installation.
             </p>
           </div>
         </div>
@@ -57,8 +58,9 @@ export default function AboutPage() {
               <h2>Services offered</h2>
             </div>
             <p className="about-services-section-lede">
-              Hands-on work for tight backyards and larger stretches of grade, from clearing
-              and drainage to lawn prep.
+              We offer many services that can be done with a bobcat loader and
+              attachments. Click the projects section for before and after
+              pictures.
             </p>
           </div>
 
